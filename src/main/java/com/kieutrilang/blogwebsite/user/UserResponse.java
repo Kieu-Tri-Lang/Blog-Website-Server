@@ -16,11 +16,11 @@ public class UserResponse implements Serializable {
 
     private String email;
 
-    private int numberOfFollowers;
+    private int numberOfFollower;
 
     private int numberOfFollowing;
 
-    private int numberOfPosts;
+    private int numberOfPost;
 
     private String profilePictureLink;
 

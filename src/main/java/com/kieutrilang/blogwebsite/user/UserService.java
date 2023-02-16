@@ -7,16 +7,20 @@ import com.kieutrilang.blogwebsite.file.File;
 
 public interface UserService {
 
-    Page<User> getAllUser(Pageable pageable);
+    Page<UserResponse> getAllUser(Pageable pageable);
 
-    User getUserByEmail(String email);
+    Page<UserResponse> getUserByUsername(String username,Pageable pageable);
 
-    User createUser(User newUser);
+    UserResponse getPrivateInfoUserByUsername(String username);
 
-    User updateUser(User updatedUser);
+    UserResponse getUserByEmail(String email);
 
-    void updateProfilePicture(String email, File profilePicture);
+    void createUser(UserRequest newUser);
 
-    void updateCoverPicture(String email, File coverPicture);
+    UserResponse updateUser(UserRequest updatedUser);
+
+    void updateProfilePictureUser(String email, File profilePicture);
+
+    void updateCoverPictureUser(String email, File coverPicture);
 
 }
