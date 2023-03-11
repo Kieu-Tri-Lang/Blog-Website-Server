@@ -26,9 +26,20 @@ public class ApiExceptionHandler {
                 .errors(errorMap).build();
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
     public ApiException handleNotFoundException(NotFoundException exception) {
+
+        Map<String, String> errorMap = new HashMap<>();
+
+        errorMap.put("errorMessage", exception.getMessage());
+
+        return ApiException.builder().errors(errorMap).build();
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(ExistedException.class)
+    public ApiException handleExitedException(ExistedException exception) {
 
         Map<String, String> errorMap = new HashMap<>();
 

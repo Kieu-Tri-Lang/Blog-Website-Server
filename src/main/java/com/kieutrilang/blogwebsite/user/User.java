@@ -8,6 +8,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
+import com.kieutrilang.blogwebsite.topic.Topic;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +27,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String username;
 
     private String password;
@@ -59,6 +61,9 @@ public class User implements Serializable {
 
     @OneToMany
     private List<Comment> comments;
+
+    @OneToMany
+    private List<Topic> topicFollowing;
 
     @OneToOne
     private File profilePicture;
